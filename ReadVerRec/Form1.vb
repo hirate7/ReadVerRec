@@ -115,7 +115,7 @@ Public Class Form1
 
         Next
 
-        lblCount.Text = C
+        lblCount.Text = C + "件"
 
     End Sub
 
