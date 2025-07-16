@@ -78,9 +78,17 @@ Public Class Form1
             '隠し属性があるか調べる
             If (di.Attributes And System.IO.FileAttributes.Hidden) = 0 Then
 
+                S = Path.GetFileName(subFolders(I))
+
+                Select Case S.Substring(0, 9)
+                    Case "H20250714", "P20250714"
+                    Case Else
+                        GoTo Loop2Last
+                End Select
+
                 FNa = subFolders(I) + "\personal.ini"
                 ReadIni2(FNa, "ユーザー", "郵便番号", D, DMax, St)
-                S = LeftBX(D(1), 8)
+                S = S + " " + LeftBX(D(1), 8)
                 ReadIni2(FNa, "ユーザー", "住所１", D, DMax, St)
                 S = S + " " + LeftBX(D(1), 40)
                 ReadIni2(FNa, "ユーザー", "屋号", D, DMax, St)
@@ -105,11 +113,16 @@ Public Class Form1
                 If St = 9 Then D(1) = "0"
                 S = S + " " + CStr(Val(D(1)))
 
+                ReadIni2(subFolders(I) + "\personal.ini", "ユーザー", "プリンター", D, DMax, St)
+                S = S + " " + D(1)
+
                 S = S + " " + GetExecDT(subFolders(I) + "\verrecnet.mpi")
                 lstNa.Items.Add(S)
                 lstNa.Sorted = True
 
                 C += 1
+
+Loop2Last:
 
             End If
 

@@ -53,6 +53,7 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstNa.Font = New System.Drawing.Font("ＭＳ ゴシック", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lstNa.FormattingEnabled = True
+        Me.lstNa.HorizontalScrollbar = True
         Me.lstNa.ItemHeight = 19
         Me.lstNa.Location = New System.Drawing.Point(412, 87)
         Me.lstNa.Name = "lstNa"
