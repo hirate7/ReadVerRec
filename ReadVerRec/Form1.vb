@@ -81,7 +81,8 @@ Public Class Form1
                 S = Path.GetFileName(subFolders(I))
 
                 Select Case S.Substring(0, 9)
-                    Case "H20250714", "P20250714"
+                    Case "O20250710"
+                        'Case "H20250714", "P20250714"
                     Case Else
                         GoTo Loop2Last
                 End Select
