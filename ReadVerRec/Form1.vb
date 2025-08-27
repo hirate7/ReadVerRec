@@ -67,6 +67,9 @@ Public Class Form1
         Dim S As String
         Dim C As Integer = 0
 
+        'ファイルを上書きし、Shift JISで書き込む 
+        Dim sw As New System.IO.StreamWriter("C:\DDD\VUPREC.CSV", False, System.Text.Encoding.GetEncoding("shift_jis"))
+
         '"C:\test"以下のサブフォルダをすべて取得する
         'ワイルドカード"*"は、すべてのフォルダを意味する
         Dim subFolders As String() = System.IO.Directory.GetDirectories("C:\Vup\", "*", System.IO.SearchOption.AllDirectories)
@@ -80,20 +83,20 @@ Public Class Form1
 
                 S = Path.GetFileName(subFolders(I))
 
-                Select Case S.Substring(0, 9)
-                    Case "O20250710"
-                        'Case "H20250714", "P20250714"
-                    Case Else
-                        GoTo Loop2Last
-                End Select
+                'Select Case S.Substring(0, 9)
+                '    Case "O20250710"
+                '        'Case "H20250714", "P20250714"
+                '    Case Else
+                '        GoTo Loop2Last
+                'End Select
 
                 FNa = subFolders(I) + "\personal.ini"
                 ReadIni2(FNa, "ユーザー", "郵便番号", D, DMax, St)
-                S = S + " " + LeftBX(D(1), 8)
+                S = S + "," + LeftBX(D(1), 8)
                 ReadIni2(FNa, "ユーザー", "住所１", D, DMax, St)
-                S = S + " " + LeftBX(D(1), 40)
+                S = S + "," + LeftBX(D(1), 40)
                 ReadIni2(FNa, "ユーザー", "屋号", D, DMax, St)
-                S = S + " " + LeftBX(D(1), 20)
+                S = S + "," + LeftBX(D(1), 20)
                 ReadIni2(FNa, "ユーザー", "システム", D, DMax, St)
                 Select Case D(1)
                     Case "大阪"
@@ -102,24 +105,26 @@ Public Class Form1
                     Case Else
                         ReadIni2(FNa, "ユーザー", "知事登録番号", D, DMax, St)
                 End Select
-                S = S + " " + D(1)
+                S = S + "," + D(1)
                 If Dir(subFolders(I) + "\mprogkdata.mpi") <> "" Then
                     ReadIni2(subFolders(I) + "\mprogkdata.mpi", "[設定]", "マイナ資格確認アプリ連携", D, DMax, St)
                     If St = 9 Then D(1) = "0"
-                    S = S + " " + CStr(Val(D(1)))
+                    S = S + "," + CStr(Val(D(1)))
                 Else
-                    S = S + " *"
+                    S = S + ",*"
                 End If
                 ReadIni2(subFolders(I) + "\mprog.ini", "[設定]", "お知らせインターネット受信", D, DMax, St)
                 If St = 9 Then D(1) = "0"
-                S = S + " " + CStr(Val(D(1)))
+                S = S + "," + CStr(Val(D(1)))
 
                 ReadIni2(subFolders(I) + "\personal.ini", "ユーザー", "プリンター", D, DMax, St)
-                S = S + " " + D(1)
+                S = S + "," + D(1)
 
-                S = S + " " + GetExecDT(subFolders(I) + "\verrecnet.mpi")
+                S = S + "," + GetExecDT(subFolders(I) + "\verrecnet.mpi")
+
                 lstNa.Items.Add(S)
-                lstNa.Sorted = True
+
+                sw.WriteLine(S)
 
                 C += 1
 
@@ -129,7 +134,12 @@ Loop2Last:
 
         Next
 
+        lstNa.Sorted = True
+
         lblCount.Text = CStr(C) + "件"
+
+        '閉じる 
+        sw.Close()
 
     End Sub
 
