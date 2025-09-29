@@ -5,10 +5,12 @@ Imports ReadVerRec.Maple01
 
 Public Class Form1
 
+    Private VerRecDir As String = "C:\VerRec\"
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim S As String
-        S = Dir("C:\Vup\*.001")
+        S = Dir(VerRecDir + "*.001")
         Do
             If S = "" Then Exit Do
             lstVerRec.Items.Add(S)
@@ -24,7 +26,7 @@ Public Class Form1
         For I = 0 To lstVerRec.Items.Count - 1
 
             ' ZIPファイルのパス
-            Dim ZipPath As String = "C:\Vup\" + lstVerRec.Items(I).ToString
+            Dim ZipPath As String = VerRecDir + lstVerRec.Items(I).ToString
 
             ' ファイルを書き出すフォルダーを作成する
             Dim folderPath As String = Strings.Left(ZipPath, InStr(ZipPath, ".") - 1)
@@ -68,11 +70,11 @@ Public Class Form1
         Dim C As Integer = 0
 
         'ファイルを上書きし、Shift JISで書き込む 
-        Dim sw As New System.IO.StreamWriter("C:\DDD\VUPREC.CSV", False, System.Text.Encoding.GetEncoding("shift_jis"))
+        Dim sw As New System.IO.StreamWriter(VerRecDir + "\VerRec.csv", False, System.Text.Encoding.GetEncoding("shift_jis"))
 
         '"C:\test"以下のサブフォルダをすべて取得する
         'ワイルドカード"*"は、すべてのフォルダを意味する
-        Dim subFolders As String() = System.IO.Directory.GetDirectories("C:\Vup\", "*", System.IO.SearchOption.AllDirectories)
+        Dim subFolders As String() = System.IO.Directory.GetDirectories(VerRecDir, "*", System.IO.SearchOption.AllDirectories)
         For I = 0 To subFolders.Count - 1
 
             'ディレクトリの属性を取得する
