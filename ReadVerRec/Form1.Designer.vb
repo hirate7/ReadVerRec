@@ -26,6 +26,8 @@ Partial Class Form1
         Me.lstVerRec = New System.Windows.Forms.ListBox()
         Me.lstNa = New System.Windows.Forms.ListBox()
         Me.lblCount = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'cmdExtractToDirectory
@@ -69,17 +71,39 @@ Partial Class Form1
         Me.lblCount.Size = New System.Drawing.Size(0, 16)
         Me.lblCount.TabIndex = 3
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label1.Location = New System.Drawing.Point(191, 42)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(257, 19)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "C:\VerRecにファイルを入れておく"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label2.Location = New System.Drawing.Point(533, 42)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(477, 19)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "C:\VerRecにVerRec.csvが作られるのでExelで参照できます。"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1168, 502)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblCount)
         Me.Controls.Add(Me.lstNa)
         Me.Controls.Add(Me.lstVerRec)
         Me.Controls.Add(Me.cmdExtractToDirectory)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "RedVerRec"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -89,4 +113,6 @@ Partial Class Form1
     Friend WithEvents lstVerRec As ListBox
     Friend WithEvents lstNa As ListBox
     Friend WithEvents lblCount As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
