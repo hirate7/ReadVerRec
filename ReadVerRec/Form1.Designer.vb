@@ -32,7 +32,7 @@ Partial Class Form1
         '
         'cmdExtractToDirectory
         '
-        Me.cmdExtractToDirectory.Location = New System.Drawing.Point(42, 33)
+        Me.cmdExtractToDirectory.Location = New System.Drawing.Point(42, 18)
         Me.cmdExtractToDirectory.Name = "cmdExtractToDirectory"
         Me.cmdExtractToDirectory.Size = New System.Drawing.Size(135, 37)
         Me.cmdExtractToDirectory.TabIndex = 0
@@ -41,11 +41,13 @@ Partial Class Form1
         '
         'lstVerRec
         '
+        Me.lstVerRec.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lstVerRec.FormattingEnabled = True
         Me.lstVerRec.ItemHeight = 12
         Me.lstVerRec.Location = New System.Drawing.Point(42, 87)
         Me.lstVerRec.Name = "lstVerRec"
-        Me.lstVerRec.Size = New System.Drawing.Size(351, 328)
+        Me.lstVerRec.Size = New System.Drawing.Size(351, 388)
         Me.lstVerRec.TabIndex = 1
         '
         'lstNa
@@ -59,14 +61,14 @@ Partial Class Form1
         Me.lstNa.ItemHeight = 19
         Me.lstNa.Location = New System.Drawing.Point(412, 87)
         Me.lstNa.Name = "lstNa"
-        Me.lstNa.Size = New System.Drawing.Size(728, 365)
+        Me.lstNa.Size = New System.Drawing.Size(728, 384)
         Me.lstNa.TabIndex = 2
         '
         'lblCount
         '
         Me.lblCount.AutoSize = True
         Me.lblCount.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblCount.Location = New System.Drawing.Point(410, 58)
+        Me.lblCount.Location = New System.Drawing.Point(409, 61)
         Me.lblCount.Name = "lblCount"
         Me.lblCount.Size = New System.Drawing.Size(0, 16)
         Me.lblCount.TabIndex = 3
@@ -75,7 +77,7 @@ Partial Class Form1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label1.Location = New System.Drawing.Point(191, 42)
+        Me.Label1.Location = New System.Drawing.Point(183, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(257, 19)
         Me.Label1.TabIndex = 4
@@ -85,7 +87,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(533, 42)
+        Me.Label2.Location = New System.Drawing.Point(653, 24)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(477, 19)
         Me.Label2.TabIndex = 5

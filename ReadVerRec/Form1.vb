@@ -23,6 +23,8 @@ Public Class Form1
 
         Dim I As Integer
 
+        Me.Cursor = Cursors.WaitCursor
+
         For I = 0 To lstVerRec.Items.Count - 1
 
             ' ZIPファイルのパス
@@ -138,10 +140,12 @@ Loop2Last:
 
         lstNa.Sorted = True
 
-        lblCount.Text = CStr(C) + "件"
+        lblCount.Text = CStr(C) + " 件"
 
         '閉じる 
         sw.Close()
+
+        Me.Cursor = Cursors.Default
 
     End Sub
 
@@ -257,4 +261,5 @@ Loop2Last:
         'End If
 
     End Function
+
 End Class
